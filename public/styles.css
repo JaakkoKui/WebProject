@@ -1,0 +1,31 @@
+body{
+    font-family: Arial;
+    color: red;
+}
+
+#ylapalkki{
+    background-color: lightblue;
+    height: 200px;
+    width: auto;
+    border: solid 1px black;
+    margin-top: 0px;
+}
+#sivupalkki{
+    background-color:lightblue;
+    height: auto;
+    width: 200px;
+    border: solid 1px black;
+    margin-left: 0px;
+}
+#loginB{
+    margin: 20px 20px 20px 0px;
+}
+
+.navBarBox{
+    margin: 5px 5px 5px 5px;
+    border-radius: 2px;
+}
+#postBar, #newPostBar{
+    background-color: #e3f2fd;
+    float: right;
+}

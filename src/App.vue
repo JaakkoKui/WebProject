@@ -1,26 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <nav-bar></nav-bar>
+  <post-bar></post-bar>
+  <new-post></new-post>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import navBar from "@/components/navBar";
+import postBar from "@/components/postBar";
+import newPost from "@/components/newPost";
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: {navBar,postBar,newPost}
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
