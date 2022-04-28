@@ -1,21 +1,20 @@
 <template>
   <nav-bar></nav-bar>
-  <post-bar></post-bar>
-  <new-post></new-post>
+  <side-bar></side-bar>
+
 
 </template>
 
 <script>
 
 import navBar from "@/components/navBar";
-import postBar from "@/components/postBar";
-import newPost from "@/components/newPost";
+import sideBar from "@/components/sideBar";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
 export default {
-  components: {navBar,postBar,newPost}
+  components: {navBar, sideBar}
 }
 </script>
 
