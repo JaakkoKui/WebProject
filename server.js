@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const port = 8081;
 const cors = require("cors");
+const DAO = require("./dao.js");
 
 app.use(cors());
 app.use(express.json());
+let idTracker = 3;
 
 //Mallintaa tietokantaa
 let posts = [
@@ -30,7 +32,9 @@ let posts = [
     },
 ];
 
-app.get('/api/posts', (req, res) => {
+app.get('/api/posts', async (req, res) => {
+    let a = await DAO.asyncFunction();
+    console.log(a);
     res.json(posts);
 });
 app.get('/api/posts/:id', (req, res) => {
@@ -38,6 +42,12 @@ app.get('/api/posts/:id', (req, res) => {
     console.log(req.params.id)
     res.json(posts.find(x => x.id == req.params.id));
 });
+
+app.post('/api/posts', (req, res) => {
+    let body = req.body;
+    posts.push({"id": idTracker++, "title": body.title, "content": body.content, comments: [], likes: 0, dislikes: 0});
+    res.json(posts);
+})
 
 app.listen(port, function() {
     console.log(`Example app listening on port ${port}!`)
