@@ -9,7 +9,7 @@ app.use(express.json());
 let idTracker = 3;
 
 //Mallintaa tietokantaa
-let posts = [
+/*let posts = [
     {
         "id": 1,
         "title": "this is a title",
@@ -30,29 +30,27 @@ let posts = [
         "likes": 0,
         "dislikes": 2
     },
-];
+];*/
 
 app.get('/api/posts', async (req, res) => {
-    let a = await DAO.asyncFunction();
-    console.log(a);
+    let posts = await DAO.getPosts();
     res.json(posts);
 });
-app.get('/api/posts/:id', (req, res) => {
-    console.log(posts)
-    console.log(req.params.id)
-    res.json(posts.find(x => x.id == req.params.id));
+app.get('/api/posts/:id', async (req, res) => {
+    let post = await DAO.getPost(req.params.id);
+    res.json(post);
 });
 
-app.post('/api/posts', (req, res) => {
-    let body = req.body;
-    posts.push({"id": idTracker++, "title": body.title, "content": body.content, comments: [], likes: 0, dislikes: 0});
-    res.json(posts);
+app.post('/api/posts', async (req, res) => {
+    let ress = await DAO.addPost(req.body);
+    console.log(ress);
+    res.json(await DAO.getPosts());
 })
 
-app.post("/api/posts/:id/comment", (req, res) => {
-    console.log(req.params.id)
-    posts.find(x => x.id == req.params.id).comments.push({"content": req.body.comment, "likes": 0, "dislikes": 0});
-    res.json(posts.find(x => x.id == req.params.id));
+app.post("/api/posts/:id/comment",  async(req, res) => {
+    let response = await DAO.addComment(req.params.id, req.body.comment);
+    console.log(response);
+    res.json(await DAO.getPost(req.params.id));
 })
 
 app.listen(port, function() {

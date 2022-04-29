@@ -4,6 +4,8 @@
     <div class="content">
         <h2>{{ this.post.title }}</h2>
         <p>{{ this.post.content }}</p>
+        <p>Likes: {{this.post.likes}}</p>
+        <p>Dislikes: {{this.post.dislikes}}</p>
         <hr>
         <h2>Leave a comment: </h2>
         <textarea v-model="comment"></textarea>
