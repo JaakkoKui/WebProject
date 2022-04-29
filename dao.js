@@ -110,7 +110,7 @@ async function dislikePost(id) {
     let post = await getPost(id);
     try {
         conn = await pool.getConnection();
-        const rows = await conn.query("UPDATE post SET likes = ? WHERE postId = ?;", [--post.likes ,id]);
+        const rows = await conn.query("UPDATE post SET dislikes = ? WHERE postId = ?;", [++post.dislikes ,id]);
         data = rows;//[ {val: 1}, meta: ... ]
 
     } finally {
