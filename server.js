@@ -49,6 +49,12 @@ app.post('/api/posts', (req, res) => {
     res.json(posts);
 })
 
+app.post("/api/posts/:id/comment", (req, res) => {
+    console.log(req.params.id)
+    posts.find(x => x.id == req.params.id).comments.push({"content": req.body.comment, "likes": 0, "dislikes": 0});
+    res.json(posts.find(x => x.id == req.params.id));
+})
+
 app.listen(port, function() {
     console.log(`Example app listening on port ${port}!`)
 });
