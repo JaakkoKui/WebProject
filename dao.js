@@ -83,19 +83,49 @@ async function addComment(id, comment) {
         return data;
     }
 }
-/*{
-    "id": 1,
-    "title": "this is a title",
-    "content": "t has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem",
-    "comments": [{
-    "content": "this is a comment",
-    "likes": 1,
-    "dislikes": 2
-}],
-    "likes": 2,
-    "dislikes": 2
-},*/
 
+async function likePost(id) {
+    let conn;
+    let data = [];
+    let post = await getPost(id);
+    try {
+        conn = await pool.getConnection();
+        const rows = await conn.query("UPDATE post SET likes = ? WHERE postId = ?;", [++post.likes ,id]);
+        data = rows;//[ {val: 1}, meta: ... ]
+
+    } finally {
+        if (conn) {
+            conn.end();
+            // eslint-disable-next-line no-unsafe-finally
+            return data;
+        }
+        // eslint-disable-next-line no-unsafe-finally
+        return data;
+    }
+}
+
+async function dislikePost(id) {
+    let conn;
+    let data = [];
+    let post = await getPost(id);
+    try {
+        conn = await pool.getConnection();
+        const rows = await conn.query("UPDATE post SET likes = ? WHERE postId = ?;", [--post.likes ,id]);
+        data = rows;//[ {val: 1}, meta: ... ]
+
+    } finally {
+        if (conn) {
+            conn.end();
+            // eslint-disable-next-line no-unsafe-finally
+            return data;
+        }
+        // eslint-disable-next-line no-unsafe-finally
+        return data;
+    }
+}
+
+
+// kun haetaan kaikkia ei tarvitse kommentteja
 function mapArray(from) {
     let postArray = []
     for(let post of from) {
@@ -127,5 +157,7 @@ module.exports = {
     getPosts,
     getPost,
     addPost,
-    addComment
+    addComment,
+    likePost,
+    dislikePost
 };
