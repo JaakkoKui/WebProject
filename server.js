@@ -6,7 +6,6 @@ const DAO = require("./dao.js");
 
 app.use(cors());
 app.use(express.json());
-let idTracker = 3;
 
 //Mallintaa tietokantaa
 /*let posts = [
