@@ -1,6 +1,6 @@
 <template>
 
-  <side-bar></side-bar>
+  <side-bar active-index="1"></side-bar>
   <nav-bar></nav-bar>
   <div class="content">
     <h2 class="littleMargin">Create a post</h2>

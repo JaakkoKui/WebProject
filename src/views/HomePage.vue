@@ -1,5 +1,5 @@
 <template>
-  <side-bar></side-bar>
+    <side-bar active-index="0"></side-bar>
     <nav-bar></nav-bar>
     <div class="content">
         <main-content></main-content>

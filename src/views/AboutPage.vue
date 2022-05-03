@@ -1,5 +1,5 @@
 <template>
-  <side-bar></side-bar>
+  <side-bar active-index="2"></side-bar>
   <nav-bar></nav-bar>
   <div class="content text">
     <h1>Tekijät:</h1>
