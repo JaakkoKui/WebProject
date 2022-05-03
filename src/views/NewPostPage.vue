@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     addPost() {
-      if (this.title === "" && this.content === "") {
+      if (this.title === "" || this.content === "") {
         alert("You need to fill both fields");
         return;
       }

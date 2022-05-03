@@ -46,6 +46,10 @@ export default {
     methods: {
         postComment() {
             console.log("postComment")
+            if(this.comment === "") {
+                alert("You need to fill all fields")
+                return;
+            }
             fetch('http://localhost:8081/api/posts/' + this.$route.params.id + "/comment", {
                 method: 'POST', // or 'PUT'
                 headers: {
