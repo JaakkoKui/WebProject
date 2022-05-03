@@ -1,7 +1,6 @@
 <template>
   <side-bar></side-bar>
     <nav-bar></nav-bar>
-
     <div class="content">
         <main-content></main-content>
     </div>

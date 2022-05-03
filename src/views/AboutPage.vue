@@ -1,13 +1,11 @@
 <template>
   <side-bar></side-bar>
   <nav-bar></nav-bar>
-
   <div class="content text">
-  <h1>Tekijät:</h1>
+    <h1>Tekijät:</h1>
     <h2>Jetro Karjalainen</h2>
     <h2>Jaakko Kuivasniemi</h2>
   </div>
-
 </template>
 
 <script>
@@ -30,11 +28,10 @@ export default {
 textarea {
   width: 100%;
 }
-.text{
-  font-family: "Agency FB", Serif, "Comic Sans MS";
+
+.text {
+  font-family: "Agency FB", Serif;
   text-align: center;
   margin-top: 10%;
-
-
 }
 </style>

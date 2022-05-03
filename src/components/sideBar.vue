@@ -1,14 +1,14 @@
 <template>
-    <div class="sidebar">
-        <a class="active topMarg" href="/">Home</a>
-        <a href="/newpost">New Post</a>
-        <a href="/about">About</a>
-    </div>
+  <div class="sidebar">
+    <a class="active topMarg" href="/">Home</a>
+    <a href="/newpost">New Post</a>
+    <a href="/about">About</a>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "sideBar",
+  name: "sideBar",
 }
 </script>
 
@@ -16,12 +16,11 @@ export default {
 .sidebar {
   padding-top: 5.9%;
   width: 15%;
-  background: rgb(15,154,220);
-  background: linear-gradient(90deg, rgba(15,154,220,0.7799092839273174) 0%, rgba(134,194,230,1) 100%);
+  background: rgb(15, 154, 220);
+  background: linear-gradient(90deg, rgba(15, 154, 220, 0.7799092839273174) 0%, rgba(134, 194, 230, 1) 100%);
   position: fixed;
   height: 100vh;
   border: solid 1px black;
-
 }
 
 .sidebar a {
@@ -32,13 +31,14 @@ export default {
 }
 
 .sidebar a.active {
-  background: rgb(0,58,86);
-  background: linear-gradient(90deg, rgba(0,58,86,0.7799092839273174) 0%, rgba(18,150,230,1) 100%);
+  background: rgb(0, 58, 86);
+  background: linear-gradient(90deg, rgba(0, 58, 86, 0.7799092839273174) 0%, rgba(18, 150, 230, 1) 100%);
   color: white;
 }
+
 .sidebar a:hover {
-  background: rgb(0,88,129);
-  background: linear-gradient(90deg, rgba(0,88,129,0.7799092839273174) 0%, rgba(72,172,232,1) 100%);
+  background: rgb(0, 88, 129);
+  background: linear-gradient(90deg, rgba(0, 88, 129, 0.7799092839273174) 0%, rgba(72, 172, 232, 1) 100%);
   color: white;
 }
 
@@ -48,20 +48,26 @@ export default {
 }
 
 @media screen and (max-width: 700px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidebar a {
+    float: left;
+  }
+
+  div.content {
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .sidebar a {
-        text-align: center;
-        float: none;
-    }
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
 }
 
 </style>
