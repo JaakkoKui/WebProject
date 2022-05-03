@@ -209,7 +209,7 @@ function mapOne(from, comments) {
 function mapComments(comments) {
     let commentArray = [];
     for(let comment of comments) {
-        commentArray.push({"content": comment.text, "likes": comment.likes, "dislikes": comment.dislikes});
+        commentArray.push({"id": comment.commentId, "content": comment.text, "likes": comment.likes, "dislikes": comment.dislikes});
     }
     return commentArray;
 }
