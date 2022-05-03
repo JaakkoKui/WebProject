@@ -6,7 +6,7 @@
       </div>
     </div>
     <div v-for="post in searchedPosts" v-bind:key="post.id">
-      <post-bar :post="post"></post-bar>
+      <post-bar :post="post" @updatePosts="updatePosts"></post-bar>
     </div>
   </div>
 </template>
@@ -36,7 +36,12 @@ export default {
           this.searchWord === ""
       );
     },
-  }
+  },
+    methods: {
+      updatePosts(newPosts) {
+          this.posts = newPosts;
+      }
+    }
 }
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'

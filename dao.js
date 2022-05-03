@@ -185,6 +185,26 @@ async function dislikePost(id) {
     }
 }
 
+async function deletePost(id) {
+    let conn;
+    let data = [];
+    try {
+        conn = await pool.getConnection();
+        await conn.query("DELETE FROM comment WHERE postId = ?", [id])
+        const rows2 = await conn.query("DELETE FROM post WHERE postId = ?", [id]);
+        data = rows2;//[ {val: 1}, meta: ... ]
+
+    } finally {
+        if (conn) {
+            conn.end();
+            // eslint-disable-next-line no-unsafe-finally
+            return data;
+        }
+        // eslint-disable-next-line no-unsafe-finally
+        return data;
+    }
+}
+
 
 // kun haetaan kaikkia ei tarvitse kommentteja
 function mapArray(from) {
@@ -223,5 +243,6 @@ module.exports = {
     dislikePost,
     likeComment,
     dislikeComment,
-    getComment
+    getComment,
+    deletePost
 };
