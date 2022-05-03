@@ -14,7 +14,7 @@ export default {
 
 <style scoped>
 .sidebar {
-  padding-top: 5.9%;
+  padding-top: 60px;
   width: 15%;
   background: rgb(15, 154, 220);
   background: linear-gradient(90deg, rgba(15, 154, 220, 0.7799092839273174) 0%, rgba(134, 194, 230, 1) 100%);
@@ -49,18 +49,20 @@ export default {
 
 @media screen and (max-width: 700px) {
   .sidebar {
+    padding: 0px;
     width: 100%;
     height: auto;
     position: relative;
   }
 
   .sidebar a {
-    float: left;
+    float: none;
   }
 
   div.content {
     margin-left: 0;
   }
+
 }
 
 @media screen and (max-width: 400px) {

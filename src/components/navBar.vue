@@ -24,6 +24,7 @@ export default {
 .navBarBox {
   margin: 5px 5px 5px 5px;
   border-radius: 2px;
+  width:40%;
 }
 
 #ylapalkki {
@@ -35,11 +36,12 @@ export default {
 }
 
 .navBarText {
-  font-family: "Comic Sans MS", Serif, Agency FB;
+  font-family: "Rockwell", Serif, Agency FB;
   font-weight: bold;
   margin-left: 30px;
   font-size: 25px;
   font-style: italic;
+  text-shadow: 1px 1px 6px grey, 1px 1px 6px cyan;
 }
 
 .button {
