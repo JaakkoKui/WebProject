@@ -52,11 +52,17 @@ app.post("/api/posts/:id/comment",  async(req, res) => {
     res.json(await DAO.getPost(req.params.id));
 })
 
-/*app.post("/api/posts/:id/comment/like",  async(req, res) => {
+app.post("/api/posts/comment/:id/like",  async(req, res) => {
     let response = await DAO.likeComment(req.params.id);
     console.log(response);
-    res.json(await DAO.getPost(req.params.id));
-})*/
+    res.json(await DAO.getComment(req.params.id));
+})
+
+app.post("/api/posts/comment/:id/dislike",  async(req, res) => {
+    let response = await DAO.dislikeComment(req.params.id);
+    console.log(response);
+    res.json(await DAO.getComment(req.params.id));
+})
 
 app.post("/api/posts/:id/like", async (req, res) => {
     let response = await DAO.likePost(req.params.id);

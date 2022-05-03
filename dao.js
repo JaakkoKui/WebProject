@@ -104,6 +104,67 @@ async function likePost(id) {
     }
 }
 
+async function likeComment(id) {
+    let conn;
+    let data = [];
+    let comment = await getComment(id);
+    console.log(comment)
+    try {
+        conn = await pool.getConnection();
+        const rows = await conn.query("UPDATE comment SET likes = ? WHERE commentId = ?;", [++comment.likes , id]);
+        data = rows;//[ {val: 1}, meta: ... ]
+
+    } finally {
+        if (conn) {
+            conn.end();
+            // eslint-disable-next-line no-unsafe-finally
+            return data;
+        }
+        // eslint-disable-next-line no-unsafe-finally
+        return data;
+    }
+}
+
+async function dislikeComment(id) {
+    let conn;
+    let data = [];
+    let comment = await getComment(id);
+    console.log(comment)
+    try {
+        conn = await pool.getConnection();
+        const rows = await conn.query("UPDATE comment SET dislikes = ? WHERE commentId = ?;", [++comment.dislikes , id]);
+        data = rows;//[ {val: 1}, meta: ... ]
+
+    } finally {
+        if (conn) {
+            conn.end();
+            // eslint-disable-next-line no-unsafe-finally
+            return data;
+        }
+        // eslint-disable-next-line no-unsafe-finally
+        return data;
+    }
+}
+
+async function getComment(id) {
+    let conn;
+    let data = [];
+    try {
+        conn = await pool.getConnection();
+        const rows = await conn.query("SELECT * FROM comment WHERE commentId = ?;", [id]);
+        data = rows;//[ {val: 1}, meta: ... ]
+
+    } finally {
+        if (conn) {
+            conn.end();
+            // eslint-disable-next-line no-unsafe-finally
+            return data[0];
+        }
+        // eslint-disable-next-line no-unsafe-finally
+        return data;
+    }
+}
+
 async function dislikePost(id) {
     let conn;
     let data = [];
