@@ -18,6 +18,10 @@
                 <p>{{ comment.content }}</p>
                 <span>likes: {{ comment.likes }}
                 dislikes: {{ comment.dislikes }}</span>
+                <span class="floatRight">
+                    <button @click="likeComment(comment.id)" class="like">👍</button>
+                    <button @click="dislikeComment(comment.id)" class="dislike">👎</button>
+                </span>
             </div>
         </div>
     </div>
@@ -56,6 +60,28 @@ export default {
                 this.post = data;
                 this.comment = "";
                 console.log(this.post);
+            })
+        },
+        likeComment(id) {
+            fetch('http://localhost:8081/api/posts/comment/' + id +  '/like', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({comment: this.comment}),
+            }).then(res => res.json()).then(data => {
+                this.post.comments.find(comment => comment.id == id).likes = data.likes;
+            })
+        },
+        dislikeComment(id) {
+            fetch('http://localhost:8081/api/posts/comment/' + id + '/dislike', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({comment: this.comment}),
+            }).then(res => res.json()).then(data => {
+                this.post.comments.find(comment => comment.id == id).dislikes = data.dislikes;
             })
         }
     }
