@@ -12,6 +12,7 @@ export default {
     props: ["activeIndex"],
     methods: {
         getActive(index) {
+            console.log(index);
             return index == this.activeIndex;
         }
     }
