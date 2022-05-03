@@ -1,14 +1,10 @@
 
-
-
-
 div.content {
     float:right;
     height: 200px;
     width: auto;
     min-width: 85%;
 }
-
 
 #mainContent{
     background: lightgray;
