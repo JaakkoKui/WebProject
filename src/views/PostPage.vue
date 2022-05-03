@@ -1,6 +1,7 @@
 <template>
+  <side-bar></side-bar>
     <nav-bar></nav-bar>
-    <side-bar></side-bar>
+
     <div class="content marginLeft">
         <div class="postContent">
             <h2>{{ this.post.title }}</h2>
@@ -77,7 +78,7 @@ textarea {
     padding: 3% 3%;
 }
 .postContent {
-    width: 85%;
+    width: 100%;
     float:right;
 }
 @media screen and (max-width: 700px) {

@@ -1,6 +1,7 @@
 <template>
-  <nav-bar></nav-bar>
   <side-bar></side-bar>
+  <nav-bar></nav-bar>
+
   <div class="content text">
   <h1>Tekijät:</h1>
     <h2>Jetro Karjalainen</h2>

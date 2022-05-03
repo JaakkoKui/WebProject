@@ -23,7 +23,6 @@ div.content {
     min-width: 85%;
 }
 
-
 #mainContent{
     background: lightgray;
     width: auto;

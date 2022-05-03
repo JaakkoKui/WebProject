@@ -1,5 +1,4 @@
 <template>
-
     <div id="postBar">
         <button id="deleteB" class="floatRight" aria-label='delete item' onClick='alert("You deleted the item!")' type='button'>X
         </button>

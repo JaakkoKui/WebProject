@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar">
-        <a class="active" href="/">Home</a>
+        <a class="active topMarg" href="/">Home</a>
         <a href="/newpost">New Post</a>
         <a href="/about">About</a>
     </div>
@@ -9,21 +9,19 @@
 <script>
 export default {
     name: "sideBar",
-
 }
 </script>
 
 <style scoped>
 .sidebar {
-  margin: 0;
-  padding: 0;
+  padding-top: 5.9%;
   width: 15%;
   background: rgb(15,154,220);
   background: linear-gradient(90deg, rgba(15,154,220,0.7799092839273174) 0%, rgba(134,194,230,1) 100%);
   position: fixed;
   height: 100vh;
-  overflow: auto;
   border: solid 1px black;
+
 }
 
 .sidebar a {

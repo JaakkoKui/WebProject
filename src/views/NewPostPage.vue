@@ -1,6 +1,7 @@
 <template>
-    <nav-bar></nav-bar>
+
     <side-bar></side-bar>
+  <nav-bar></nav-bar>
     <div class="content">
         <h2 class="littleMargin">Create a post</h2>
         <div class="input-group mb-3">
