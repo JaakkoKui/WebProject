@@ -16,23 +16,56 @@ export default {
 html{
   background-color: lightgray;
 }
-
-
-@media screen and (max-width: 700px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
+div.content {
+    float:right;
+    height: 200px;
+    width: auto;
+    min-width: 85%;
 }
 
-@media screen and (max-width: 400px) {
-    .sidebar a {
-        text-align: center;
-        float: none;
-    }
+
+#mainContent{
+    background: lightgray;
+    width: auto;
+    min-height: 85.3%;
+    height: auto;
+}
+.input-group{
+    justify-content: flex-end;
+    padding: 20px 20px 20px 20px;
+}
+#postBar{
+    margin: auto 20px 20px 20px;
+    padding: 20px 20px 40px 20px;
+    border: solid 1px grey;
+    border-radius: 20px;
+}
+button.like{
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 50%;
+    color: rgba(0,150,136 ,1);
+    background-color:rgba(38,166,154 ,0.3);
+    border-color: rgba(0,150,136 ,1);
+    border-width: 1px;
+    font-size: 15px;
+}
+
+button.dislike{
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 50%;
+    color: rgba(255,82,82 ,1);
+    background-color: rgba(255,138,128 ,0.3);
+    border-color: rgba(255,82,82 ,1);
+    border-width: 1px;
+    font-size: 15px;
+}
+
+.floatRight{
+    float: right;
 }
 
 </style>

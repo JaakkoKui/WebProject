@@ -2,20 +2,22 @@
     <nav-bar></nav-bar>
     <side-bar></side-bar>
     <div class="content marginLeft">
-        <h2>{{ this.post.title }}</h2>
-        <p>{{ this.post.content }}</p>
-        <p>Likes: {{this.post.likes}}</p>
-        <p>Dislikes: {{this.post.dislikes}}</p>
-        <hr>
-        <h2>Leave a comment: </h2>
-        <textarea v-model="comment"></textarea>
-        <button type="button" class="btn btn-primary" @click="postComment">Post comment</button>
-        <hr>
-        <h2>Comments</h2>
-        <div class="commentBox" v-for="comment in this.post.comments" v-bind:key="comment.id">
-            <p>{{comment.content}}</p>
-            <span>likes: {{comment.likes}}
-                dislikes: {{comment.dislikes}}</span>
+        <div class="postContent">
+            <h2>{{ this.post.title }}</h2>
+            <p>{{ this.post.content }}</p>
+            <p>Likes: {{ this.post.likes }}</p>
+            <p>Dislikes: {{ this.post.dislikes }}</p>
+            <hr>
+            <h2>Leave a comment: </h2>
+            <textarea v-model="comment"></textarea>
+            <button type="button" class="btn btn-primary" @click="postComment">Post comment</button>
+            <hr>
+            <h2>Comments</h2>
+            <div class="commentBox" v-for="comment in this.post.comments" v-bind:key="comment.id">
+                <p>{{ comment.content }}</p>
+                <span>likes: {{ comment.likes }}
+                dislikes: {{ comment.dislikes }}</span>
+            </div>
         </div>
     </div>
 
@@ -63,14 +65,25 @@ export default {
 textarea {
     width: 100%;
 }
-.commentBox{
-  margin: 2.5% 2.5% 2.5% 2.5%;
-  padding: 8px 8px 8px 8px;
-  border: dotted 1px black;
-  border-radius: 5px;
+
+.commentBox {
+    margin: 2.5% 2.5% 2.5% 2.5%;
+    padding: 8px 8px 8px 8px;
+    border: dotted 1px black;
+    border-radius: 5px;
 }
 
-.marginLeft{
- padding: 3% 3%;
+.marginLeft {
+    padding: 3% 3%;
+}
+.postContent {
+    width: 85%;
+    float:right;
+}
+@media screen and (max-width: 700px) {
+    .postContent {
+        width: 100%;
+        float:right;
+    }
 }
 </style>
