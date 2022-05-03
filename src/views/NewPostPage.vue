@@ -2,20 +2,20 @@
     <nav-bar></nav-bar>
     <side-bar></side-bar>
     <div class="content">
-        <h2>Create a post</h2>
+        <h2 class="littleMargin">Create a post</h2>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
+                <span class="input-group-text tinyMarginRight" id="inputGroup-sizing-default">Title</span>
             </div>
             <input v-model="title" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">Text</span>
+                <span class="input-group-text tinyMarginRight">Text</span>
             </div>
             <textarea v-model="content" class="form-control" aria-label="With textarea"></textarea>
         </div>
-        <button @click="addPost" type="button" class="btn btn-primary">Post</button>
+        <button @click="addPost" type="button" class="btn btn-primary littleMargin floatRight">Post</button>
 
     </div>
 </template>
@@ -55,4 +55,11 @@ export default {
 
 <style scoped>
 
+.littleMargin{
+margin: 20px 30px 20px 20px
+}
+
+.tinyMarginRight{
+  margin-right: 5px;
+}
 </style>

@@ -1,52 +1,7 @@
 
-.button {
-    transition-duration: 0.4s;
-    background-color: lightgray;
-    border: 2px solid blue;
-    border-radius: 10px;
-}
-
-.button:hover {
-    background-color: dodgerblue;
-    color: white;
-}
 
 
 
-/* The side navigation menu */
-.sidebar {
-    margin: 0;
-    padding: 0;
-    width: 15%;
-    background: rgb(111,111,111);
-    background: linear-gradient(90deg, rgba(111,111,111,1) 4%, rgba(89,142,167,1) 97%);
-    position: fixed;
-    height: 100vh;
-    overflow: auto;
-    border: solid 1px black;
-}
-
-/* Sidebar links */
-.sidebar a {
-    display: block;
-    color: black;
-    padding: 16px;
-    text-decoration: none;
-}
-
-/* Active/current link */
-.sidebar a.active {
-    background-color: deepskyblue;
-    color: white;
-}
-
-/* Links on mouse-over */
-.sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
-}
-
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
     float:right;
     height: 200px;
@@ -54,7 +9,6 @@ div.content {
     min-width: 85%;
 }
 
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
     .sidebar {
         width: 100%;
@@ -65,7 +19,6 @@ div.content {
     div.content {margin-left: 0;}
 }
 
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
     .sidebar a {
         text-align: center;
@@ -83,7 +36,7 @@ div.content {
     padding: 20px 20px 20px 20px;
 }
 #postBar{
-    margin: 0px 20px 20px 20px;
+    margin: auto 20px 20px 20px;
     padding: 20px 20px 40px 20px;
     border: solid 1px grey;
     border-radius: 20px;
@@ -114,5 +67,4 @@ button.dislike{
 
 .floatRight{
     float: right;
-
 }

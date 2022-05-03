@@ -1,7 +1,7 @@
 <template>
     <nav-bar></nav-bar>
     <side-bar></side-bar>
-    <div class="content">
+    <div class="content marginLeft">
         <h2>{{ this.post.title }}</h2>
         <p>{{ this.post.content }}</p>
         <p>Likes: {{this.post.likes}}</p>
@@ -12,7 +12,7 @@
         <button type="button" class="btn btn-primary" @click="postComment">Post comment</button>
         <hr>
         <h2>Comments</h2>
-        <div v-for="comment in this.post.comments" v-bind:key="comment.id">
+        <div class="commentBox" v-for="comment in this.post.comments" v-bind:key="comment.id">
             <p>{{comment.content}}</p>
             <span>likes: {{comment.likes}}
                 dislikes: {{comment.dislikes}}</span>
@@ -62,5 +62,15 @@ export default {
 <style scoped>
 textarea {
     width: 100%;
+}
+.commentBox{
+  margin: 2.5% 2.5% 2.5% 2.5%;
+  padding: 8px 8px 8px 8px;
+  border: dotted 1px black;
+  border-radius: 5px;
+}
+
+.marginLeft{
+ padding: 3% 3%;
 }
 </style>
