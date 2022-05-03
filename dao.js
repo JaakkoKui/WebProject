@@ -220,5 +220,8 @@ module.exports = {
     addPost,
     addComment,
     likePost,
-    dislikePost
+    dislikePost,
+    likeComment,
+    dislikeComment,
+    getComment
 };
