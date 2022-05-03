@@ -5,6 +5,7 @@
         <input v-model="searchWord" type="search" id="form1" class="form-control" placeholder="Search"/>
       </div>
     </div>
+      <div class="noPosts" v-if="posts.length < 1"><h3>No posts yet. You can start by creating a post!</h3></div>
     <div v-for="post in searchedPosts" v-bind:key="post.id">
       <post-bar :post="post" @updatePosts="updatePosts"></post-bar>
     </div>
@@ -56,6 +57,10 @@ import postBar from "@/components/postBar";
   width: auto;
   min-height: 85.3%;
   height: auto;
+}
+
+.noPosts {
+    margin-left: 20px;
 }
 
 </style>
