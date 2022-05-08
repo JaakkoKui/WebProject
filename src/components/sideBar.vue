@@ -11,6 +11,11 @@ export default {
     name: "sideBar",
     props: ["activeIndex"],
     methods: {
+        /**
+         * Palauttaa onko annettu indeksi aktiivinen sivu
+         * @param index sivun indeksi jota tarkistetaan
+         * @returns {boolean}
+         */
         getActive(index) {
             console.log(index);
             return index == this.activeIndex;

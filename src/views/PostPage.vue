@@ -48,6 +48,9 @@ export default {
         });
     },
     methods: {
+        /**
+         * Kommentoi postaukseen
+         */
         postComment() {
             console.log("postComment")
             if(this.comment === "") {
@@ -66,6 +69,10 @@ export default {
                 console.log(this.post);
             })
         },
+        /**
+         * Tykkäää kommentista
+         * @param {number} id kommentin id josta tykätään
+         */
         likeComment(id) {
             fetch('http://localhost:8081/api/posts/comment/' + id +  '/like', {
                 method: 'POST', // or 'PUT'
@@ -77,6 +84,10 @@ export default {
                 this.post.comments.find(comment => comment.id == id).likes = data.likes;
             })
         },
+        /**
+         * Eitykkää kommentista
+         * @param {number} id kommentin id josta disliketään
+         */
         dislikeComment(id) {
             fetch('http://localhost:8081/api/posts/comment/' + id + '/dislike', {
                 method: 'POST', // or 'PUT'

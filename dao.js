@@ -6,6 +6,11 @@ const pool = mariadb.createPool({
     connectionLimit: 5,
     database: 'omatprojektit'
 });
+
+/**
+ * Hakee kannasta kaikki postaukset
+ * @returns {Promise<*[]>}
+ */
 async function getPosts() {
     let conn;
     let data = [];
@@ -25,6 +30,11 @@ async function getPosts() {
     }
 }
 
+/**
+ * Hakee yhden postauksen id:n avulla
+ * @param {number} id postin id
+ * @returns {Promise<{comments: *[], dislikes: *, id: *, title, content, likes: *}|*[]>}
+ */
 async function getPost(id) {
     let conn;
     let data = [];
@@ -47,6 +57,11 @@ async function getPost(id) {
     }
 }
 
+/**
+ * Lisää postauksen
+ * @param post postin body lisältää title ja content
+ * @returns {Promise<*[]>}
+ */
 async function addPost(post) {
     let conn;
     let data = [];
@@ -65,6 +80,13 @@ async function addPost(post) {
         return data;
     }
 }
+
+/**
+ * Lisää kommentin postaukseen
+ * @param id postauksen id
+ * @param comment kommentin sisältö
+ * @returns {Promise<*[]>}
+ */
 async function addComment(id, comment) {
     let conn;
     let data = [];
@@ -84,6 +106,11 @@ async function addComment(id, comment) {
     }
 }
 
+/**
+ * Tykkää postauksesta
+ * @param id postauksen id
+ * @returns {Promise<*[]>}
+ */
 async function likePost(id) {
     let conn;
     let data = [];
@@ -104,6 +131,11 @@ async function likePost(id) {
     }
 }
 
+/**
+ * Tykkää kommentista
+ * @param id kommentin id
+ * @returns {Promise<*[]>}
+ */
 async function likeComment(id) {
     let conn;
     let data = [];
@@ -125,6 +157,11 @@ async function likeComment(id) {
     }
 }
 
+/**
+ * Dislikee kommentista
+ * @param id kommentin id
+ * @returns {Promise<*[]>}
+ */
 async function dislikeComment(id) {
     let conn;
     let data = [];
@@ -146,6 +183,11 @@ async function dislikeComment(id) {
     }
 }
 
+/**
+ * Hakee yhden kommentin
+ * @param id kommentin id
+ * @returns {Promise<*[]|*>}
+ */
 async function getComment(id) {
     let conn;
     let data = [];
@@ -165,6 +207,11 @@ async function getComment(id) {
     }
 }
 
+/**
+ * Dislikee postauksesta
+ * @param id postin id
+ * @returns {Promise<*[]>}
+ */
 async function dislikePost(id) {
     let conn;
     let data = [];
@@ -185,6 +232,11 @@ async function dislikePost(id) {
     }
 }
 
+/**
+ * poistaa postauksen
+ * @param id postin id
+ * @returns {Promise<*[]>}
+ */
 async function deletePost(id) {
     let conn;
     let data = [];
@@ -206,7 +258,11 @@ async function deletePost(id) {
 }
 
 
-// kun haetaan kaikkia ei tarvitse kommentteja
+/**
+ * Mappaa tietokanta rivi listan haluttavaan muotoon
+ * @param from Tietokanta muodossa oleva lista
+ * @returns {*[{comments: *[], dislikes: *, id: *, title, content, likes: *}]}
+ */
 function mapArray(from) {
     let postArray = []
     for(let post of from) {
@@ -215,6 +271,12 @@ function mapArray(from) {
     return postArray;
 }
 
+/**
+ * Mappaa yhden tietokanta rivin haluttuun muotoon
+ * @param from tietokanta rivi
+ * @param comments sen kommentit
+ * @returns {{comments: *[], dislikes: *, id: *, title, content, likes: *}}
+ */
 function mapOne(from, comments) {
     return {
         "id": from.postId,
@@ -226,6 +288,11 @@ function mapOne(from, comments) {
     }
 }
 
+/**
+ * Mappaa kommentit tietokanta muodosta haluttuun muotoon
+ * @param comments
+ * @returns {*[]}
+ */
 function mapComments(comments) {
     let commentArray = [];
     for(let comment of comments) {

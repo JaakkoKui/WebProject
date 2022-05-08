@@ -23,19 +23,31 @@ export default {
         }
     },
     methods: {
+        /**
+         * Avaa postauksen tarkemman sivun
+         */
         openPost() {
             this.$router.push("/post/" + this.post.id);
         },
+        /**
+         * Tykkää postauksesta
+         */
         likePost() {
             fetch("http://localhost:8081/api/posts/" + this.post.id + "/like", {
                 method: 'POST', // or 'PUT'
             });
         },
+        /**
+         * Dislikee postauksesta
+         */
         dislikePost() {
             fetch("http://localhost:8081/api/posts/" + this.post.id + "/dislike", {
                 method: 'POST', // or 'PUT'
             });
         },
+        /**
+         * Poistaa postauksen
+         */
         deletePost() {
             fetch("http://localhost:8081/api/posts/" + this.post.id, {
                 method: 'DELETE', // or 'PUT'
