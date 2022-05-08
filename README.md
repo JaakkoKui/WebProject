@@ -70,7 +70,7 @@ Hakee yhden postauksen id:n perusteella. Palauttaa:
 ```
 POST /api/posts/
 ```
-####Body
+#### Body
 ```
 {
     "title": String,
@@ -97,7 +97,7 @@ Lisää postauksen. Palauttaa:
 ```
 POST /api/posts/:id/comment
 ```
-####Body
+#### Body
 ```
 {
     "comment": String
