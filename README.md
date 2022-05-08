@@ -23,6 +23,17 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## Server käynnistyy. Pitää olla käynnissä, jotta toimii
+```
+node server.js
+```
+
+## Tietokanta
+
+Projektissa on myös tietokanta, jonka tarvitsee toimintaa varten
+
+---
+
 ### API kuvaus
 
 ```
